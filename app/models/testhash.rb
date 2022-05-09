@@ -1,0 +1,2 @@
+class Testhash < ApplicationRecord
+end

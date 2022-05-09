@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Camping Gear</h1>
+
+<div id="testcamping">
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">weight</th>
+      <th scope="col">volume</th>
+      <th scope="col">carry</th>
+      <th scope="col">details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @testcampings.each do |test| %>
+    <tr>
+      <td><%= test.name %></td>
+      <td><%= test.weight %></td>
+      <td><%= test.volume %></td>
+      <td><%= test.carry %> </td
+      <td><%= link_to "Details", test %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

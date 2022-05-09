@@ -1,0 +1,10 @@
+<h1>Welcome to Joe's Database</h1>
+
+<ul>
+    <% @articles.each do |article| %>
+      <li>
+          <%= link_to article.title, article %>
+             </li/
+      <% end %>
+</ul>
+<p>This will be where I catalog my collection/inventory of various hobbies like shooting sports and backpacking.</p>

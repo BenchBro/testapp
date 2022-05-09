@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Catalogues</h1>
+
+
+<div id="catalogues">
+  <% @catalogues.each do |catalogue| %>
+    <%= render catalogue %>
+    <p>
+      <%= link_to "Show this catalogue", catalogue %>
+    </p>
+  <% end %>
+
+
+<%= link_to "New catalogue", new_catalogue_path %>

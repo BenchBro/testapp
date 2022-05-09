@@ -1,0 +1,78 @@
+<div id="<%= dom_id pistol %>">
+
+
+
+  <a href="/pistols" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Back</a>
+
+  <p>
+    <strong>Name:</strong>
+    <%= pistol.name %>
+  </p>
+
+  <p>
+    <strong>Manufacturer:</strong>
+    <%= pistol.manufacturer %>
+  </p>
+
+  <p>
+    <strong>Caliber:</strong>
+    <%= pistol.caliber %>
+  </p>
+
+  <p>
+    <strong>Capacity:</strong>
+    <%= pistol.capacity %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= pistol.age %>
+  </p>
+
+  <p>
+    <strong>Accessories:</strong>
+    <%= pistol.accessories %>
+  </p>
+
+  <p>
+    <strong>Comments:</strong>
+    <%= pistol.comments %>
+  </p>
+  <p>
+  <% file_path = "Pistols/#{pistol.name}.jpg" %>
+  <% if Rails.application.assets.find_asset(file_path).nil? %>
+  <% image_exists = false %>
+   <% else %>
+   <% image_exists = true %>
+
+
+      <% end %>
+<%= image_tag("Pistols/#{pistol.name}", width:400) if image_exists %>
+
+  </p>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    View full size
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Full Size</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div>
+        <%= image_tag("Pistols/#{pistol.name}") if image_exists %>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<a href="/pistols" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Back</a>
+</div>

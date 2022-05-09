@@ -1,0 +1,2 @@
+class Sleepingbag < ApplicationRecord
+end

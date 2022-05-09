@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @testhash %>
+
+<div>
+  <%= link_to "Edit this testhash", edit_testhash_path(@testhash) %> |
+  <%= link_to "Back to testhashes", testhashes_path %>
+
+  <%= button_to "Destroy this testhash", @testhash, method: :delete %>
+</div>

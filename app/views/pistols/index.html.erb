@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pistols</h1>
+
+
+<div id="pistols">
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">caliber</th>
+      <th scope="col">capacity</th>
+      <th scope="col">age</th>
+      <th scope=col"></th>
+      <th scope=col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pistols.each do |pistol| %>
+    <tr>
+      <td><%= pistol.name %></td>
+      <td><%= pistol.manufacturer %></td>
+      <td><%= pistol.caliber %></td>
+      <td><%= pistol.capacity %></td>
+      <td><%= pistol.age %></td>
+      <td><%= link_to "See Details", pistol %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<% #link_to "Add to firearms" firearms.push(pistol) %>
+<% #link_to "New pistol", new_pistol_path %>
+<a href="pistols/new" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Add New Pistol</a>

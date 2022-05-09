@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @catalogue %>
+
+<div>
+  <%= link_to "Edit this catalogue", edit_catalogue_path(@catalogue) %> |
+  <%= link_to "Back to catalogues", catalogues_path %>
+
+  <%= button_to "Destroy this catalogue", @catalogue, method: :delete %>
+</div>

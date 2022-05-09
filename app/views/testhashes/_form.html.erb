@@ -1,0 +1,47 @@
+<%= form_with(model: testhash) do |form| %>
+  <% if testhash.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(testhash.errors.count, "error") %> prohibited this testhash from being saved:</h2>
+
+      <ul>
+        <% testhash.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :test1, style: "display: block" %>
+    <%= form.text_field :test1 %>
+  </div>
+
+  <div>
+    <%= form.label :test2, style: "display: block" %>
+    <%= form.text_field :test2 %>
+  </div>
+
+  <div>
+    <%= form.label :test3, style: "display: block" %>
+    <%= form.text_field :test3 %>
+  </div>
+
+  <div>
+    <%= form.label :string, style: "display: block" %>
+    <%= form.text_field :string %>
+  </div>
+
+  <div>
+    <%= form.label :test4, style: "display: block" %>
+    <%= form.text_field :test4 %>
+  </div>
+
+  <div>
+    <%= form.label :test5, style: "display: block" %>
+    <%= form.text_field :test5 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+
+
+<% @testcampings = Testcamping.all %>
+<h1>Camping Gear</h1>
+
+
+<div id="testcamping">
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">weight</th>
+      <th scope="col">volume</th>
+      <th scope="col">carry</th>
+      <th scope="col">details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @testcampings.each do |test| %>
+    <% if test.carry == true %>
+    <tr>
+      <td><%= test.name %></td>
+      <td><%= test.weight %></td>
+      <td><%= test.volume %></td>
+      <td><input type="checkbox"
+                        data-action="test#toggle"
+                        data-target="todo.carry"
+                        <% if test.carry %> checked <% end %> >
+          </td
+      <td><%= link_to "See Details", test %></td>
+      <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

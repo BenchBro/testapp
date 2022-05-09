@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Firearms</h1>
+
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">caliber</th>
+      <th scope="col">capacity</th>
+      <th scope="col">age</th>
+
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @firearms.each do |firearm| %>
+    <tr>
+      <td><%= firearm.name %></td>
+      <td><%= firearm.manufacturer %></td>
+      <td><%= firearm.caliber %></td>
+      <td><%= firearm.capacity %></td>
+      <td><%= firearm.age %></td>
+
+      <td><%= link_to "Show this firearm", firearm %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<%= link_to "New firearm", new_firearm_path %>

@@ -1,0 +1,2 @@
+module TesthashesHelper
+end

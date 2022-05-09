@@ -1,0 +1,2 @@
+class Firearm < ApplicationRecord
+end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Testhashes</h1>
+
+<div id="testhashes">
+  <% @testhashes.each do |testhash| %>
+    <%= render testhash %>
+    <p>
+      <%= link_to "Show this testhash", testhash %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New testhash", new_testhash_path %>

@@ -1,0 +1,2 @@
+class Testcamping < ApplicationRecord
+end
