@@ -3,6 +3,12 @@
 
 <h1>Camping Gear</h1>
 
+
+
+
+
+
+
 <div id="testcamping">
 </div>
 <table class="table table-striped">
@@ -11,19 +17,24 @@
       <th scope="col">Name</th>
       <th scope="col">weight</th>
       <th scope="col">volume</th>
-      <th scope="col">carry</th>
+      <th scope="col">carry?</th>
+      <th scope="col">carry button</th>
+      <th scope="col">carry status</th>
       <th scope="col">details</th>
     </tr>
   </thead>
   <tbody>
-    <% @testcampings.each do |test| %>
+    <% @testcampings.each do |testcamping| %>
     <tr>
-      <td><%= test.name %></td>
-      <td><%= test.weight %></td>
-      <td><%= test.volume %></td>
-      <td><%= test.carry %> </td
-      <td><%= link_to "Details", test %></td>
+      <td><%= testcamping.name %></td>
+      <td><%= testcamping.weight %></td>
+      <td><%= testcamping.volume %></td>
+      <td><%= check_box_tag "testcamping_ids[]", testcamping.id ,false %> <%= link_to "carry", batch_operation %> </td>
+      <td><%= link_to 'Carry', batch_operation %>
+      <td><%= testcamping.carry %></td>
+      <td><%= link_to "Details", testcamping %></td>
       <% end %>
     </tr>
   </tbody>
 </table>
+<%= testcamping_ids %>

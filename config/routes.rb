@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :testcampings
+
+  resources :testcampings do
+    collection do
+      patch 'batch_operation'
+    end
+  end
+
   resources :pistols
   resources :testhashes
   resources :firearms
@@ -10,6 +16,7 @@ Rails.application.routes.draw do
 	root "articles#index"
   resources :articles
 end
+
   #get "/home", to: "home#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

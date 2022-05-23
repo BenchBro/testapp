@@ -4,6 +4,21 @@
 <h1>Camping Gear</h1>
 
 
+<p style="color: green"><%= notice %></p>
+
+<h1>Testhashes</h1>
+
+
+
+  <% @testcampings.each do |testcamping| %>
+
+    <%= testcamping.name %>
+    <%= render "form", testcamping: @testcamping %>
+
+  <% end %>
+  
+<%= link_to "New testhash", new_testhash_path %>
+
 <div id="testcamping">
 </div>
 <table class="table table-striped">
@@ -18,18 +33,12 @@
   </thead>
   <tbody>
     <% @testcampings.each do |test| %>
-    <% if test.carry == true %>
     <tr>
       <td><%= test.name %></td>
       <td><%= test.weight %></td>
       <td><%= test.volume %></td>
-      <td><input type="checkbox"
-                        data-action="test#toggle"
-                        data-target="todo.carry"
-                        <% if test.carry %> checked <% end %> >
-          </td
-      <td><%= link_to "See Details", test %></td>
-      <% end %>
+      <td><%= test.carry %> </td
+      <td><%= link_to "Details", test %></td>
       <% end %>
     </tr>
   </tbody>

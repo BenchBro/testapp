@@ -68,15 +68,16 @@ class TestcampingsController < ApplicationController
       params.require(:testcamping).permit(:name, :weight, :volume, :carry)
     end
 end
-def update
-  @testcampings = Testcamping.find_by_id params[:id]
-  @testcampings = respond_to do |format|
-    format.js
-  end
-end
 
 private
 
 def testcampings_params
   params.require(:testcamping).permit(:title, :completed)
+end
+
+def batch_operation
+  case params[:operation]
+  when "carry"
+    Testcamping.where(id: params[:testcamping_ids]).update_all(carry: true)
+  end
 end

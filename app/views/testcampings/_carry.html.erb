@@ -1,0 +1,17 @@
+
+
+<% @testcampings = Testcamping.all %>
+<% @testcampings.each do |testcamping| %>
+<%= form_with(model: testcamping) do |form| %>
+
+  <div>
+    <%= testcamping.name %>
+    <%= form.label :carry, style: "display: block" %>
+    <%= form.check_box :carry %>
+    <%= form.submit %>
+  </div>
+  <div>
+
+  </div>
+<% end %>
+<% end %>
