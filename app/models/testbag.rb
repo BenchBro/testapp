@@ -1,0 +1,2 @@
+class Testbag < ApplicationRecord
+end

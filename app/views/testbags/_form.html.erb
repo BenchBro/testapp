@@ -1,0 +1,47 @@
+<%= form_with(model: testbag) do |form| %>
+  <% if testbag.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(testbag.errors.count, "error") %> prohibited this testbag from being saved:</h2>
+
+      <ul>
+        <% testbag.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :volume, style: "display: block" %>
+    <%= form.number_field :volume, step: :any %>
+  </div>
+
+  <div>
+    <%= form.label :minweight, style: "display: block" %>
+    <%= form.number_field :minweight, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= form.label :maxweight, style: "display: block" %>
+    <%= form.number_field :maxweight, step: 0.1%>
+  </div>
+
+  <div>
+    <%= form.label :bagweight, style: "display: block" %>
+    <%= form.number_field :bagweight, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= form.label :carry, style: "display: block" %>
+    <%= form.check_box :carry %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
