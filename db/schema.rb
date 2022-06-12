@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_010752) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_214651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_010752) do
     t.integer "age"
     t.string "accessories"
     t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testbags", force: :cascade do |t|
+    t.string "name"
+    t.integer "volume"
+    t.integer "minweight"
+    t.integer "maxweight"
+    t.integer "bagweight"
+    t.boolean "carry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

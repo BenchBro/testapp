@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Testbags</h1>
+
+<div id="testbags">
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">volume</th>
+      <th scope="col">minweight</th>
+      <th scope="col">maxweight</th>
+      <th scope="col">bagweight</th>
+      <th scope=col"></th>
+      <th scope=col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @testbags.each do |bag| %>
+    <tr>
+      <td><%= bag.name %></td>
+      <td><%= bag.volume %></td>
+      <td><%= bag.minweight %></td>
+      <td><%= bag.maxweight %></td>
+      <td><%= bag.bagweight %></td>
+      <td><%= link_to "See Details", bag %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
+<%= link_to "New testbag", new_testbag_path %>

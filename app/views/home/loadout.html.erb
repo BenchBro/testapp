@@ -1,23 +1,90 @@
 
 
 <% @testcampings = Testcamping.all %>
-<h1>Camping Gear</h1>
-
-
+<% @testbags = Testbag.all %>
+<h1>Loadout check </h1>
+<% @bagexists = 0 %>
+<% @carriedweight = 0 %>
+<% @testbags.each do |bag| %>
+<% if bag.carry == true %>
+<% @wornbagname = bag.name %>
+<% @wornbagvolume = bag.volume %>
+<% @wornbagminweight = bag.minweight  %>
+<% @wornbagmaxweight = bag.maxweight %>
+<% @bagexists = + 1 %>
+<% end %>
+<% end %>
+<%= @wornbagmaxweight %>
+<% if @bagexists == 1 %>
+<% @testcampings.each do |volume| %>
+<% if volume.carry == true %>
+<% @wornbagvolume = @wornbagvolume - volume.volume %>
+<% else %>
+<% end %>
+<% end %>
+<% @testcampings.each do |weight| %>
+<% if weight.carry == true %>
+<% @carriedweight = @carriedweight + weight.weight %>
+<%= @carriedweight %>
+<% end %>
+<% end %>
+<%= @carriedweight %>
+<% case @wornbagvolume %>
+<% when -10000000000..0 %>
+  <div class="p-3 mb-2 bg-danger text-white"><%= "Volume remaining is #{@wornbagvolume}; Too full! your chosen backpack cannot fit your chosen gear!" %> </div>
+<% when 1..5 %>
+  <div class="p-3 mb-2 bg-warning text-dark"><%= "Volume remaining is #{@wornbagvolume}; This may fit, however it will require some carefull stuffing to make it work" %> </div>
+<% when 6..10000000000 %>
+  <div class="p-3 mb-2 bg-success text-white"><%= "Volume remaining is #{@wornbagvolume}; Your gear should fit!" %> </div>
+<% else %>
+  <div class="p-3 mb-2 bg-danger text-white"><%= "error! maybe you have no equipment selected?" %> </div>
+<% end %>
+<% if @carriedweight < @wornbagminweight %>
+  <div class="p-3 mb-2 bg-warning text-dark"> <%= "This should work, but is below the minnimum reccomended weight for your bag, consider taking a smaller bag." %> </div>
+<% elsif @carriedweight >= @wornbagminweight && @carriedweight <= @wornbagmaxweight %>
+  <div class="p-3 mb-2 bg-success text-white"> <%= "Your loadout weight is within the specs of your bag" %> </div>
+<% elsif @carriedweight > @wornbagmaxweight %>
+ <div class="p-3 mb-2 bg-danger text-white"><%= "Your loadout is over the max weight of your bag, consider changing your loadout or bringing a bigger bag" %> </div>
+<% else %>
+  <%= "error" %>
+<% end %>
+<% elsif @bagexists == 0 %>
+<%= "Please select a backback to begin your loadout" %>
+<% else %>
+<%= "Error, have you selected more than one backpack?" %>
+<% end %>
+<%= @volumefill %>
 <p style="color: green"><%= notice %></p>
 
-<h1>Testhashes</h1>
+<h1>Testbags</h1>
 
 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">volume</th>
+      <th scope="col">minweight</th>
+      <th scope="col">maxweight</th>
+      <th scope="col">bagweight</th>
+      <th scope=col">details</th>
+      <th scope=col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @testbags.each do |bag| %>
+    <tr>
+      <td><%= bag.name %></td>
+      <td><%= bag.volume %></td>
+      <td><%= bag.minweight %></td>
+      <td><%= bag.maxweight %></td>
+      <td><%= bag.bagweight %></td>
+      <td><%= link_to "See Details", bag %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 
-  <% @testcampings.each do |testcamping| %>
-
-    <%= testcamping.name %>
-    <%= render "form", testcamping: @testcamping %>
-
-  <% end %>
-  
-<%= link_to "New testhash", new_testhash_path %>
 
 <div id="testcamping">
 </div>
@@ -27,18 +94,22 @@
       <th scope="col">Name</th>
       <th scope="col">weight</th>
       <th scope="col">volume</th>
-      <th scope="col">carry</th>
+      <th scope="col">carry?</th>
+
+      <th scope="col">carry status</th>
       <th scope="col">details</th>
     </tr>
   </thead>
   <tbody>
-    <% @testcampings.each do |test| %>
+    <% @testcampings.each do |testcamping| %>
     <tr>
-      <td><%= test.name %></td>
-      <td><%= test.weight %></td>
-      <td><%= test.volume %></td>
-      <td><%= test.carry %> </td
-      <td><%= link_to "Details", test %></td>
+      <td><%= testcamping.name %></td>
+      <td><%= testcamping.weight %></td>
+      <td><%= testcamping.volume %></td>
+      <td><%= testcamping.carry %> </td>
+
+      <td><%= testcamping.carry %></td>
+      <td><%= link_to "Details", testcamping %></td>
       <% end %>
     </tr>
   </tbody>

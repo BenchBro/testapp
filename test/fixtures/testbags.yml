@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  volume: 1
+  minweight: 1
+  maxweight: 1
+  bagweight: 1
+  carry: false
+
+two:
+  name: MyString
+  volume: 1
+  minweight: 1
+  maxweight: 1
+  bagweight: 1
+  carry: false
